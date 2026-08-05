@@ -1,7 +1,26 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+interface Servicio {
+  id: string;
+  titulo: string;
+  imagen: string;
+  color: string;
+  descripcion: string;
+}
+
 export default function Home() {
+  // Estado para los servicios: puede ser number (índice abierto) o null (todos cerrados)
+  const [activeService, setActiveService] = useState<number | null>(null);
+
+  // Función para abrir o cerrar al hacer clic/tap
+  const toggleService = (index: number) => {
+    setActiveService((prev) => (prev === index ? null : index));
+  };
+
   const clientes = [
     "/logo-cliente1.png",
     "/logo-cliente2.png",
@@ -11,8 +30,59 @@ export default function Home() {
     "/logo-cliente6.png",
   ];
 
+  const servicios: Servicio[] = [
+    {
+      id: "fotografia",
+      titulo: "Fotografía",
+      imagen: "/fantasmedia-web4.png",
+      color: "from-red-900/80 via-red-600/30 to-transparent",
+      descripcion:
+        "Sesiones fotográficas publicitarias, editoriales y de moda con tratamiento de iluminación cinematográfica y retoque digital de alta fidelidad.",
+    },
+    {
+      id: "publicidad",
+      titulo: "Publicidad",
+      imagen: "/fantasmedia-web5.png",
+      color: "from-amber-900/80 via-amber-600/30 to-transparent",
+      descripcion:
+        "Comerciales y campañas creativas diseñadas para captar la atención de tu audiencia y potenciar el valor de marca en cualquier formato.",
+    },
+    {
+      id: "videoclip",
+      titulo: "Videoclip",
+      imagen: "/fantasmedia-web6.png",
+      color: "from-purple-900/80 via-purple-600/30 to-transparent",
+      descripcion:
+        "Producción de videos musicales con propuesta conceptual potente, dinamismo visual, diseño de arte y postproducción de estándar internacional.",
+    },
+    {
+      id: "cine",
+      titulo: "Cine",
+      imagen: "/fantasmedia-web7.png",
+      color: "from-blue-900/80 via-blue-600/30 to-transparent",
+      descripcion:
+        "Cortometrajes, documentales y proyectos de ficción. Desarrollamos historias profundas cuidando la narrativa, el ritmo y la óptica cinematográfica.",
+    },
+    {
+      id: "eventos",
+      titulo: "Eventos",
+      imagen: "/fantasmedia-web8.png",
+      color: "from-emerald-900/80 via-emerald-600/30 to-transparent",
+      descripcion:
+        "Cobertura audiovisual multi-cámara para lanzamientos, festivales y conferencias, capturando la energía del momento con calidad impecable.",
+    },
+    {
+      id: "streaming",
+      titulo: "Streaming",
+      imagen: "/fantasmedia-web9.png",
+      color: "from-[#c22533]/90 via-[#c22533]/30 to-transparent",
+      descripcion:
+        "Transmisiones en vivo de alta definición con switcheo en directo, gráficas personalizadas e interacción fluida para tus plataformas.",
+    },
+  ];
+
   return (
-    <main className="relative w-full overflow-x-hidden bg-black text-white font-sans selection:bg-[#c22533] selection:text-white">
+    <main className="relative w-full overflow-x-hidden bg-black text-white font-sans selection:bg-[#c22533] selection:text-white scroll-pt-12">
       
       {/* 1. VIDEO DE FONDO PERMANENTE */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
@@ -33,7 +103,7 @@ export default function Home() {
       </div>
 
       {/* ========================================================= */}
-      {/* SECCIÓN 1: VISTA INICIAL
+      {/* SECCIÓN 1: VISTA INICIAL */}
       {/* ========================================================= */}
       <section className="relative z-10 w-full h-screen flex flex-col justify-between items-center px-6 py-8">
         
@@ -94,7 +164,7 @@ export default function Home() {
       </section>
 
       {/* ========================================================= */}
-      {/* SECCIÓN 2: CONTINUACIÓN HERO*/}
+      {/* SECCIÓN 2: CONTINUACIÓN HERO */}
       {/* ========================================================= */}
       <section className="relative z-10 w-full py-12 md:py-16 flex flex-col justify-center items-center px-6 text-center">
         <div className="max-w-3xl space-y-5 px-4">
@@ -128,11 +198,11 @@ export default function Home() {
       {/* ========================================================= */}
       {/* SECCIÓN 3: CÓMO LO HACEMOS */}
       {/* ========================================================= */}
-      <section id="productora" className="relative z-10 w-full py-16 md:py-24 px-6 flex justify-center items-center">
-        <div className="relative w-full max-w-5xl rounded-3xl overflow-hidden bg-black/40 backdrop-blur-md border border-white/10 p-8 md:p-14 shadow-[0_8px_32px_0_rgba(0,0,0,0.8)]">
+      <section id="productora" className="relative z-10 w-full py-12 md:py-20 px-6 flex justify-center items-center">
+        <div className="relative w-full max-w-5xl rounded-3xl overflow-hidden bg-black/40 backdrop-blur-md border border-white/10 p-6 md:p-12 shadow-[0_8px_32px_0_rgba(0,0,0,0.8)]">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
-            <div className="lg:col-span-7 space-y-6">
+            <div className="lg:col-span-7 space-y-5">
               <div className="space-y-2">
                 <h2 className="text-2xl md:text-4xl font-black uppercase tracking-wide leading-tight drop-shadow-md">
                   Cómo materializamos <br className="hidden sm:block"/>
@@ -141,12 +211,12 @@ export default function Home() {
               </div>
 
               <div className="py-2 px-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm inline-block">
-                <p className="text-[11px] md:text-xs font-semibold tracking-[0.15em] uppercase text-zinc-300">
+                <p className="text-[10px] md:text-xs font-semibold tracking-[0.15em] uppercase text-zinc-300">
                   Visión <span className="text-[#c22533]">·</span> Creatividad <span className="text-[#c22533]">·</span> Realización <span className="text-[#c22533]">·</span> Entrega
                 </p>
               </div>
 
-              <div className="space-y-4 text-xs md:text-sm text-zinc-300 leading-relaxed font-light">
+              <div className="space-y-3 text-xs md:text-sm text-zinc-300 leading-relaxed font-light">
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-[#c22533] mt-1.5 flex-shrink-0 shadow-[0_0_8px_#c22533]" />
                   <p>
@@ -163,7 +233,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="lg:col-span-5 relative h-64 md:h-80 w-full rounded-2xl overflow-hidden border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.8)] group">
+            <div className="lg:col-span-5 relative h-56 md:h-72 w-full rounded-2xl overflow-hidden border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.8)] group">
               <Image
                 src="/fantasmedia-web1.png"
                 alt="Fantasmedia Producción"
@@ -193,13 +263,128 @@ export default function Home() {
           }}
         />
 
-        {/* 4. CLIENTES */}
-        <section id="clientes" className="relative z-10 w-full py-16 md:py-20">
-          <div className="w-full text-center space-y-3 mb-12 px-6">
+        {/* ========================================================= */}
+        {/* 4. NUESTROS SERVICIOS (ADAPTATIVO 100% RESPONSIVE) */}
+        {/* ========================================================= */}
+        <section id="servicios" className="relative z-10 w-full py-12 md:py-16">
+          <div className="w-full text-center space-y-2 mb-8 px-6">
+            <h2 className="text-2xl md:text-4xl font-black uppercase tracking-wider">
+              Nuestros Servicios
+            </h2>
+            <p className="text-xs md:text-sm text-zinc-400 max-w-xl mx-auto font-light">
+              Haz clic en cualquier servicio para desplegar sus detalles.
+            </p>
+          </div>
+
+          {/* CONTENEDOR MÓVIL Y PC */}
+          <div className="w-full px-4 md:px-8 max-w-[1500px] mx-auto">
+            
+            {/* GRID EN MÓVIL (grid) / ABANICO EN COMPUTADORA (md:flex) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:flex md:flex-row h-auto md:h-[420px] w-full gap-3 transition-all duration-500 ease-in-out">
+              {servicios.map((servicio, index) => {
+                const isOpen = activeService === index;
+
+                return (
+                  <div
+                    key={servicio.id}
+                    onClick={() => toggleService(index)}
+                    className={`relative overflow-hidden rounded-xl cursor-pointer border border-white/10 transition-all duration-500 ease-in-out select-none ${
+                      isOpen
+                        ? "md:flex-[3] border-[#c22533] shadow-[0_0_20px_rgba(194,37,51,0.4)] bg-black/80"
+                        : "md:flex-1 border-white/10 hover:border-white/30 bg-black/40"
+                    }`}
+                  >
+                    {/* Imagen de fondo */}
+                    <div className={`relative w-full ${isOpen ? "h-44 md:h-full" : "h-28 md:h-full"} transition-all duration-500`}>
+                      <Image
+                        src={servicio.imagen}
+                        alt={servicio.titulo}
+                        fill
+                        className={`object-cover transition-all duration-700 ease-out ${
+                          isOpen
+                            ? "scale-105 brightness-90 contrast-105"
+                            : "brightness-50 grayscale group-hover:grayscale-0 group-hover:scale-105"
+                        }`}
+                        priority={index < 3}
+                      />
+
+                      {/* Capas de degradado */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/20 pointer-events-none" />
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-br ${servicio.color} transition-opacity duration-500 pointer-events-none ${
+                          isOpen ? "opacity-80" : "opacity-30"
+                        }`}
+                      />
+
+                      {/* Encabezado sobre la imagen */}
+                      <div className="absolute inset-0 p-4 flex flex-col justify-between z-10 pointer-events-none">
+                        <div className="flex items-center justify-between w-full">
+                          <span className="text-[10px] md:text-xs font-mono font-bold tracking-widest text-zinc-300 uppercase">
+                            0{index + 1}
+                          </span>
+
+                          {/* Título Vertical en PC cuando está cerrado */}
+                          {!isOpen && (
+                            <div className="hidden md:block [writing-mode:vertical-lr] rotate-180 text-base lg:text-lg font-extrabold uppercase tracking-[0.2em] text-zinc-300">
+                              {servicio.titulo}
+                            </div>
+                          )}
+
+                          {/* Icono Abrir/Cerrar en Móvil */}
+                          <div className="md:hidden w-6 h-6 rounded-full bg-black/60 border border-white/20 flex items-center justify-center text-white">
+                            {isOpen ? "−" : "+"}
+                          </div>
+                        </div>
+
+                        {/* Título Horizontal en Móvil y en PC cuando está cerrado/abierto */}
+                        <div className={`${!isOpen ? "block md:hidden" : "hidden md:block"}`}>
+                          <h3 className="text-base md:text-2xl font-black uppercase tracking-wide text-white drop-shadow-md">
+                            {servicio.titulo}
+                          </h3>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Desplegable de Contenido para Móvil y PC */}
+                    {isOpen && (
+                      <div className="p-4 md:absolute md:bottom-0 md:left-0 md:right-0 md:p-6 z-20 bg-gradient-to-t from-black via-black/90 to-transparent">
+                        <h3 className="text-lg font-black uppercase tracking-wide text-white mb-1.5 md:text-2xl">
+                          {servicio.titulo}
+                        </h3>
+                        <p className="text-xs md:text-sm text-zinc-200 leading-relaxed font-light max-w-md drop-shadow-md">
+                          {servicio.descripcion}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* BOTÓN CONTACTANOS ABAJO */}
+            <div className="w-full flex justify-center md:justify-end items-center mt-6 px-1">
+              <Link
+                href="#contacto"
+                className="inline-flex items-center gap-2.5 px-6 py-3 bg-[#c22533] text-white font-bold text-xs tracking-[0.2em] uppercase rounded-full shadow-[0_0_15px_rgba(194,37,51,0.5)] hover:bg-[#a01c27] hover:shadow-[0_0_25px_rgba(194,37,51,0.8)] hover:scale-105 transition-all duration-300"
+              >
+                <span>Cotiza tu Proyecto</span>
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ========================================================= */}
+        {/* 5. CLIENTES */}
+        {/* ========================================================= */}
+        <section id="clientes" className="relative z-10 w-full py-12 md:py-16 border-t border-white/5">
+          <div className="w-full text-center space-y-2 mb-8 px-6">
             <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#c22533]">
               Confían en Nosotros
             </span>
-            <h2 className="text-2xl md:text-4xl font-extrabold uppercase tracking-wider">
+            <h2 className="text-2xl md:text-3xl font-extrabold uppercase tracking-wider">
               Nuestros Clientes
             </h2>
           </div>
@@ -208,11 +393,11 @@ export default function Home() {
             <div className="absolute left-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-r from-[#121318] to-transparent z-10 pointer-events-none" />
             <div className="absolute right-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-l from-[#121318] to-transparent z-10 pointer-events-none" />
 
-            <div className="flex items-center justify-start md:justify-center gap-8 md:gap-16 px-8 overflow-x-auto no-scrollbar py-4">
+            <div className="flex items-center justify-start md:justify-center gap-8 md:gap-16 px-8 overflow-x-auto no-scrollbar py-2">
               {clientes.map((logo, index) => (
                 <div 
                   key={index} 
-                  className="relative min-w-[120px] md:min-w-[160px] h-16 md:h-20 flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300"
+                  className="relative min-w-[100px] md:min-w-[140px] h-14 md:h-16 flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300"
                 >
                   <Image
                     src={logo}
@@ -227,11 +412,11 @@ export default function Home() {
         </section>
 
         {/* ========================================================= */}
-        {/* 5. SECCIÓN DE CONTACTO */}
+        {/* 6. SECCIÓN DE CONTACTO */}
         {/* ========================================================= */}
-        <section id="contacto" className="relative z-10 w-full py-28 md:py-40 px-6 flex flex-col justify-center items-center overflow-hidden border-t border-white/5 group">
+        <section id="contacto" className="relative z-10 w-full py-20 md:py-32 px-6 flex flex-col justify-center items-center overflow-hidden border-t border-white/5 group">
           
-          {/* IMAGEN COMPLETA DE FONDO (FULL HORIZONTE) */}
+          {/* IMAGEN COMPLETA DE FONDO */}
           <div className="absolute inset-0 z-0 pointer-events-none">
             <Image
               src="/fantasmedia-web3.png"
@@ -240,42 +425,41 @@ export default function Home() {
               className="object-cover object-center brightness-75 contrast-110 opacity-70 group-hover:scale-105 transition-transform duration-1000 ease-out"
               priority
             />
-            {/* Sombras orgánicas en los bordes para fundirse suavemente arriba y abajo */}
             <div className="absolute inset-0 bg-gradient-to-b from-[#121318] via-transparent to-[#121318]" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#121318]/90 via-transparent to-[#121318]/90" />
             <div className="absolute inset-0 bg-[#c22533]/10 mix-blend-color-dodge" />
           </div>
 
           {/* CONTENIDO FLOTANTE */}
-          <div className="relative z-10 w-full max-w-6xl mx-auto text-center space-y-10">
+          <div className="relative z-10 w-full max-w-6xl mx-auto text-center space-y-8">
             
-            <div className="space-y-4 max-w-3xl mx-auto">
-              <span className="inline-block px-4 py-1.5 rounded-full bg-black/40 border border-white/10 backdrop-blur-md text-[11px] md:text-xs font-bold tracking-[0.35em] uppercase text-[#c22533] shadow-lg">
+            <div className="space-y-3 max-w-3xl mx-auto">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-black/40 border border-white/10 backdrop-blur-md text-[10px] md:text-xs font-bold tracking-[0.35em] uppercase text-[#c22533] shadow-lg">
                 Hagamos historia juntos
               </span>
 
-              <h2 className="text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-tight leading-none drop-shadow-[0_10px_20px_rgba(0,0,0,0.9)]">
+              <h2 className="text-3xl sm:text-4xl md:text-6xl font-black uppercase tracking-tight leading-none drop-shadow-[0_10px_20px_rgba(0,0,0,0.9)]">
                 Contáctanos, Háblanos <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-zinc-400">
                   & Síguenos
                 </span>
               </h2>
 
-              <p className="text-sm md:text-base text-zinc-200 max-w-xl mx-auto font-light leading-relaxed drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)] pt-2">
+              <p className="text-xs md:text-sm text-zinc-200 max-w-xl mx-auto font-light leading-relaxed drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)] pt-1">
                 ¿Tienes una idea en mente? Contáctanos a través de cualquiera de nuestros canales.
               </p>
             </div>
 
-            <div className="flex flex-wrap justify-center items-center gap-5 md:gap-8 pt-4">
+            <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 pt-2">
               
               {/* Botón WhatsApp */}
               <a
                 href="https://wa.me/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3.5 px-8 py-4 rounded-full bg-black/50 border border-white/20 backdrop-blur-xl text-xs md:text-sm font-bold tracking-[0.15em] uppercase text-white hover:bg-[#25D366] hover:border-[#25D366] hover:text-black hover:scale-110 hover:shadow-[0_0_35px_rgba(37,211,102,0.8)] transition-all duration-300 group/btn"
+                className="flex items-center gap-3 px-6 py-3.5 rounded-full bg-black/50 border border-white/20 backdrop-blur-xl text-xs font-bold tracking-[0.15em] uppercase text-white hover:bg-[#25D366] hover:border-[#25D366] hover:text-black hover:scale-105 hover:shadow-[0_0_30px_rgba(37,211,102,0.8)] transition-all duration-300 group/btn"
               >
-                <svg className="w-5 h-5 fill-current transition-transform duration-300 group-hover/btn:scale-125" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 fill-current transition-transform duration-300 group-hover/btn:scale-125" viewBox="0 0 24 24">
                   <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
                 </svg>
                 <span>WhatsApp</span>
@@ -286,9 +470,9 @@ export default function Home() {
                 href="https://instagram.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3.5 px-8 py-4 rounded-full bg-black/50 border border-white/20 backdrop-blur-xl text-xs md:text-sm font-bold tracking-[0.15em] uppercase text-white hover:bg-gradient-to-r hover:from-[#833ab4] hover:via-[#fd1d1d] hover:to-[#fcb045] hover:border-transparent hover:scale-110 hover:shadow-[0_0_35px_rgba(253,29,29,0.8)] transition-all duration-300 group/btn"
+                className="flex items-center gap-3 px-6 py-3.5 rounded-full bg-black/50 border border-white/20 backdrop-blur-xl text-xs font-bold tracking-[0.15em] uppercase text-white hover:bg-gradient-to-r hover:from-[#833ab4] hover:via-[#fd1d1d] hover:to-[#fcb045] hover:border-transparent hover:scale-105 hover:shadow-[0_0_30px_rgba(253,29,29,0.8)] transition-all duration-300 group/btn"
               >
-                <svg className="w-5 h-5 fill-current transition-transform duration-300 group-hover/btn:scale-125" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 fill-current transition-transform duration-300 group-hover/btn:scale-125" viewBox="0 0 24 24">
                   <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                 </svg>
                 <span>Instagram</span>
@@ -297,9 +481,9 @@ export default function Home() {
               {/* Botón Correo Electrónico */}
               <a
                 href="mailto:contacto@fantasmedia.com"
-                className="flex items-center gap-3.5 px-8 py-4 rounded-full bg-black/50 border border-white/20 backdrop-blur-xl text-xs md:text-sm font-bold tracking-[0.15em] uppercase text-white hover:bg-[#c22533] hover:border-[#c22533] hover:scale-110 hover:shadow-[0_0_35px_rgba(194,37,51,0.9)] transition-all duration-300 group/btn"
+                className="flex items-center gap-3 px-6 py-3.5 rounded-full bg-black/50 border border-white/20 backdrop-blur-xl text-xs font-bold tracking-[0.15em] uppercase text-white hover:bg-[#c22533] hover:border-[#c22533] hover:scale-105 hover:shadow-[0_0_30px_rgba(194,37,51,0.9)] transition-all duration-300 group/btn"
               >
-                <svg className="w-5 h-5 fill-current transition-transform duration-300 group-hover/btn:scale-125" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 fill-current transition-transform duration-300 group-hover/btn:scale-125" viewBox="0 0 24 24">
                   <path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/>
                 </svg>
                 <span>Correo</span>
