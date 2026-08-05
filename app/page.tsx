@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import CinematicIntro from "@/app/components/CinematicIntro";
 
 interface Servicio {
   id: string;
@@ -13,6 +14,9 @@ interface Servicio {
 }
 
 export default function Home() {
+  
+  // Muestra el fantasmita al inicio
+  const [showIntro, setShowIntro] = useState(true);
   // Estado para los servicios: puede ser number (índice abierto) o null (todos cerrados)
   const [activeService, setActiveService] = useState<number | null>(null);
 
@@ -82,25 +86,35 @@ export default function Home() {
   ];
 
   return (
-    <main className="relative w-full overflow-x-hidden bg-black text-white font-sans selection:bg-[#c22533] selection:text-white scroll-pt-12">
-      
-      {/* 1. VIDEO DE FONDO PERMANENTE */}
-      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="h-full w-full object-cover scale-105 filter brightness-90 contrast-105"
-        >
-          <source src="/hero-video.mp4" type="video/mp4" />
-          Tu navegador no soporta videos en HTML5.
-        </video>
-        
-        {/* Capas de degradado atmosféricas */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/80" />
-        <div className="absolute inset-0 bg-[#c22533]/10 mix-blend-multiply" />
-      </div>
+    <>
+      {/* 1. MOSTRAR INTRO CINEMATOGRÁFICA */}
+      {showIntro && (
+        <CinematicIntro onComplete={() => setShowIntro(false)} />
+      )}
+
+      {/* 2. CONTENIDO PRINCIPAL */}
+      <main
+        className={`relative w-full overflow-x-hidden bg-black text-white font-sans selection:bg-[#c22533] selection:text-white scroll-pt-12 transition-opacity duration-1000 ${
+          showIntro ? "opacity-0 h-screen overflow-hidden" : "opacity-100"
+        }`}
+      >
+        {/* 1. VIDEO DE FONDO PERMANENTE */}
+        <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="h-full w-full object-cover scale-105 filter brightness-90 contrast-105"
+          >
+            <source src="/hero-video.mp4" type="video/mp4" />
+            Tu navegador no soporta videos en HTML5.
+          </video>
+
+          {/* Capas de degradado atmosféricas */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/80" />
+          <div className="absolute inset-0 bg-[#c22533]/10 mix-blend-multiply" />
+        </div>
 
       {/* ========================================================= */}
       {/* SECCIÓN 1: VISTA INICIAL */}
@@ -435,13 +449,13 @@ export default function Home() {
             
             <div className="space-y-3 max-w-3xl mx-auto">
               <span className="inline-block px-4 py-1.5 rounded-full bg-black/40 border border-white/10 backdrop-blur-md text-[10px] md:text-xs font-bold tracking-[0.35em] uppercase text-[#c22533] shadow-lg">
-                Hagamos historia juntos
+                Hablemos de tu idea
               </span>
 
               <h2 className="text-3xl sm:text-4xl md:text-6xl font-black uppercase tracking-tight leading-none drop-shadow-[0_10px_20px_rgba(0,0,0,0.9)]">
-                Contáctanos, Háblanos <br />
+                Conectemos <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-zinc-400">
-                  & Síguenos
+                  & Creemos juntos
                 </span>
               </h2>
 
@@ -503,5 +517,6 @@ export default function Home() {
       </div>
 
     </main>
-  );
+  </>
+);
 }
