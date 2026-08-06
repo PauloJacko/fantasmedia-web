@@ -25,13 +25,21 @@ export default function Home() {
     setActiveService((prev) => (prev === index ? null : index));
   };
 
-  const clientes = [
+const clientes = [
     "/logo-cliente1.png",
     "/logo-cliente2.png",
     "/logo-cliente3.png",
     "/logo-cliente4.png",
     "/logo-cliente5.png",
     "/logo-cliente6.png",
+    "/logo-cliente7.png",
+    "/logo-cliente8.png",
+    "/logo-cliente9.png",
+    "/logo-cliente10.png",
+    "/logo-cliente11.png",
+    "/logo-cliente12.png",
+    "/logo-cliente13.png",
+    "/logo-cliente14.jpeg",
   ];
 
   const servicios: Servicio[] = [
@@ -394,34 +402,34 @@ export default function Home() {
         </section>
 
         {/* ========================================================= */}
-        {/* 5. CLIENTES */}
+        {/* 5. CLIENTES (GRID SIN SCROLL) */}
         {/* ========================================================= */}
         <section id="clientes" className="relative z-10 w-full py-12 md:py-16 border-t border-white/5">
           <div className="w-full text-center space-y-2 mb-8 px-6">
             <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#c22533]">
               Confían en Nosotros
             </span>
-            <h2 className="text-2xl md:text-3xl font-extrabold uppercase tracking-wider">
+            <h2 className="text-2xl md:text-3xl font-extrabold uppercase tracking-wider text-white">
               Nuestros Clientes
             </h2>
           </div>
 
-          <div className="w-full overflow-hidden relative">
-            <div className="absolute left-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-r from-[#121318] to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-l from-[#121318] to-transparent z-10 pointer-events-none" />
-
-            <div className="flex items-center justify-start md:justify-center gap-8 md:gap-16 px-8 overflow-x-auto no-scrollbar py-2">
+          {/* Contenedor Grid Responsivo */}
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-3 md:gap-4 items-center justify-center">
               {clientes.map((logo, index) => (
                 <div 
                   key={index} 
-                  className="relative min-w-[100px] md:min-w-[140px] h-14 md:h-16 flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-300"
+                  className="group relative h-14 sm:h-16 md:h-18 w-full flex items-center justify-center p-2.5 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm transition-all duration-300 hover:bg-white/15 hover:border-white/30 hover:scale-105 shadow-sm"
                 >
-                  <Image
-                    src={logo}
-                    alt={`Cliente ${index + 1}`}
-                    fill
-                    className="object-contain"
-                  />
+                  <div className="relative w-full h-full grayscale opacity-75 contrast-125 brightness-200 group-hover:grayscale-0 group-hover:opacity-100 group-hover:brightness-100 transition-all duration-300">
+                    <Image
+                      src={logo}
+                      alt={`Cliente ${index + 1}`}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
                 </div>
               ))}
             </div>
