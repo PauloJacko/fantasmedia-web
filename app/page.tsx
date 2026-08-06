@@ -60,6 +60,14 @@ export default function Home() {
         "Producción de videos musicales con propuesta conceptual potente, dinamismo visual, diseño de arte y postproducción de estándar internacional.",
     },
     {
+      id: "corporativo",
+      titulo: "Corporativo",
+      imagen: "/fantasmedia-web9.png",
+      color: "from-cyan-900/80 via-cyan-600/30 to-transparent",
+      descripcion:
+        "Contenido audiovisual institucional, retratos ejecutivos y cobertura de instalaciones. Comunicación estratégica para proyectar la identidad, valores y profesionalismo de tu empresa.",
+    },
+    {
       id: "cine",
       titulo: "Cine",
       imagen: "/fantasmedia-web7.png",
@@ -78,7 +86,7 @@ export default function Home() {
     {
       id: "streaming",
       titulo: "Streaming",
-      imagen: "/fantasmedia-web9.png",
+      imagen: "/fantasmedia-web10.png",
       color: "from-[#c22533]/90 via-[#c22533]/30 to-transparent",
       descripcion:
         "Transmisiones en vivo de alta definición con switcheo en directo, gráficas personalizadas e interacción fluida para tus plataformas.",
@@ -105,7 +113,7 @@ export default function Home() {
             loop
             muted
             playsInline
-            className="h-full w-full object-cover scale-105 filter brightness-90 contrast-105"
+            className="h-full w-full object-cover scale-105 filter brightness-95 contrast-105"
           >
             <source src="/hero-video.mp4" type="video/mp4" />
             Tu navegador no soporta videos en HTML5.
@@ -308,7 +316,7 @@ export default function Home() {
                         : "md:flex-1 border-white/10 hover:border-white/30 bg-black/40"
                     }`}
                   >
-                    {/* Imagen de fondo */}
+                    {/* Imagen de fondo a color real */}
                     <div className={`relative w-full ${isOpen ? "h-44 md:h-full" : "h-28 md:h-full"} transition-all duration-500`}>
                       <Image
                         src={servicio.imagen}
@@ -316,30 +324,25 @@ export default function Home() {
                         fill
                         className={`object-cover transition-all duration-700 ease-out ${
                           isOpen
-                            ? "scale-105 brightness-90 contrast-105"
-                            : "brightness-50 grayscale group-hover:grayscale-0 group-hover:scale-105"
+                            ? "scale-105 brightness-100 contrast-100"
+                            : "brightness-75 group-hover:brightness-100 group-hover:scale-105"
                         }`}
                         priority={index < 3}
                       />
 
-                      {/* Capas de degradado */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/20 pointer-events-none" />
-                      <div
-                        className={`absolute inset-0 bg-gradient-to-br ${servicio.color} transition-opacity duration-500 pointer-events-none ${
-                          isOpen ? "opacity-80" : "opacity-30"
-                        }`}
-                      />
+                      {/* Viñeta de degradado oscuro neutro (solo para lectura clara del texto) */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/30 pointer-events-none" />
 
                       {/* Encabezado sobre la imagen */}
                       <div className="absolute inset-0 p-4 flex flex-col justify-between z-10 pointer-events-none">
                         <div className="flex items-center justify-between w-full">
-                          <span className="text-[10px] md:text-xs font-mono font-bold tracking-widest text-zinc-300 uppercase">
+                          <span className="text-[10px] md:text-xs font-mono font-bold tracking-widest text-zinc-300 uppercase drop-shadow-md">
                             0{index + 1}
                           </span>
 
                           {/* Título Vertical en PC cuando está cerrado */}
                           {!isOpen && (
-                            <div className="hidden md:block [writing-mode:vertical-lr] rotate-180 text-base lg:text-lg font-extrabold uppercase tracking-[0.2em] text-zinc-300">
+                            <div className="hidden md:block [writing-mode:vertical-lr] rotate-180 text-base lg:text-lg font-extrabold uppercase tracking-[0.2em] text-zinc-200 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                               {servicio.titulo}
                             </div>
                           )}
@@ -350,9 +353,9 @@ export default function Home() {
                           </div>
                         </div>
 
-                        {/* Título Horizontal en Móvil y en PC cuando está cerrado/abierto */}
+                        {/* Título Horizontal en Móvil y en PC cuando está abierto */}
                         <div className={`${!isOpen ? "block md:hidden" : "hidden md:block"}`}>
-                          <h3 className="text-base md:text-2xl font-black uppercase tracking-wide text-white drop-shadow-md">
+                          <h3 className="text-base md:text-2xl font-black uppercase tracking-wide text-white drop-shadow-lg">
                             {servicio.titulo}
                           </h3>
                         </div>
@@ -511,7 +514,7 @@ export default function Home() {
 
         {/* FOOTER */}
         <footer className="relative z-10 w-full py-6 text-center text-[10px] uppercase tracking-[0.3em] text-zinc-400 border-t border-white/5">
-          Fantasmedia Producciones • All Rights Reserved
+          Fantasmedia Producciones • All Rights Reserved • Página creada por Paulokko
         </footer>
 
       </div>
