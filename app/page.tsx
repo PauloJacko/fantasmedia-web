@@ -14,13 +14,11 @@ interface Servicio {
 }
 
 export default function Home() {
-  
-  // Muestra el fantasmita al inicio
+
   const [showIntro, setShowIntro] = useState(true);
-  // Estado para los servicios: puede ser number (índice abierto) o null (todos cerrados)
+
   const [activeService, setActiveService] = useState<number | null>(null);
 
-  // Función para abrir o cerrar al hacer clic/tap
   const toggleService = (index: number) => {
     setActiveService((prev) => (prev === index ? null : index));
   };
@@ -94,7 +92,7 @@ const clientes = [
     {
       id: "streaming",
       titulo: "Streaming",
-      imagen: "/fantasmedia-web10.png",
+      imagen: "/fantasmedia-web11.png",
       color: "from-[#c22533]/90 via-[#c22533]/30 to-transparent",
       descripcion:
         "Transmisiones en vivo de alta definición con switcheo en directo, gráficas personalizadas e interacción fluida para tus plataformas.",
@@ -214,12 +212,14 @@ const clientes = [
           </div>
 
           <div className="pt-4">
-            <Link
-              href="#contacto"
+            <a
+              href="https://wa.me/56941459096"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block px-7 py-3 bg-[#c22533] text-white font-bold text-xs md:text-sm tracking-[0.2em] uppercase rounded-full shadow-[0_0_15px_rgba(194,37,51,0.6)] hover:bg-[#a01c27] hover:shadow-[0_0_25px_rgba(194,37,51,0.9)] hover:scale-105 transition-all duration-300"
             >
               Contáctanos
-            </Link>
+            </a>
           </div>
 
         </div>
@@ -294,7 +294,7 @@ const clientes = [
         />
 
         {/* ========================================================= */}
-        {/* 4. NUESTROS SERVICIOS (ADAPTATIVO 100% RESPONSIVE) */}
+        {/* 4. NUESTROS SERVICIOS */}
         {/* ========================================================= */}
         <section id="servicios" className="relative z-10 w-full py-12 md:py-16">
           <div className="w-full text-center space-y-2 mb-8 px-6">
@@ -388,15 +388,17 @@ const clientes = [
 
             {/* BOTÓN CONTACTANOS ABAJO */}
             <div className="w-full flex justify-center md:justify-end items-center mt-6 px-1">
-              <Link
-                href="#contacto"
+              <a
+                href="https://wa.me/56941459096"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 px-6 py-3 bg-[#c22533] text-white font-bold text-xs tracking-[0.2em] uppercase rounded-full shadow-[0_0_15px_rgba(194,37,51,0.5)] hover:bg-[#a01c27] hover:shadow-[0_0_25px_rgba(194,37,51,0.8)] hover:scale-105 transition-all duration-300"
               >
                 <span>Cotiza tu Proyecto</span>
                 <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
-              </Link>
+              </a>
             </div>
           </div>
         </section>
@@ -463,12 +465,9 @@ const clientes = [
                 Hablemos de tu idea
               </span>
 
-              <h2 className="text-3xl sm:text-4xl md:text-6xl font-black uppercase tracking-tight leading-none drop-shadow-[0_10px_20px_rgba(0,0,0,0.9)]">
-                Conectemos <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-zinc-400">
-                  & Creemos juntos
-                </span>
-              </h2>
+              <h4 className="text-3xl sm:text-4xl md:text-6xl font-black uppercase tracking-tight leading-none drop-shadow-[0_10px_20px_rgba(0,0,0,0.9)]">
+                Conectemos & Creemos juntos <br />
+              </h4>
 
               <p className="text-xs md:text-sm text-zinc-200 max-w-xl mx-auto font-light leading-relaxed drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)] pt-1">
                 ¿Tienes una idea en mente? Contáctanos a través de cualquiera de nuestros canales.
@@ -479,7 +478,7 @@ const clientes = [
               
               {/* Botón WhatsApp */}
               <a
-                href="https://wa.me/"
+                href="https://wa.me/56941459096"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 px-6 py-3.5 rounded-full bg-black/50 border border-white/20 backdrop-blur-xl text-xs font-bold tracking-[0.15em] uppercase text-white hover:bg-[#25D366] hover:border-[#25D366] hover:text-black hover:scale-105 hover:shadow-[0_0_30px_rgba(37,211,102,0.8)] transition-all duration-300 group/btn"
@@ -492,7 +491,7 @@ const clientes = [
 
               {/* Botón Instagram */}
               <a
-                href="https://instagram.com/"
+                href="https://instagram.com/fantasmedia.cl"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 px-6 py-3.5 rounded-full bg-black/50 border border-white/20 backdrop-blur-xl text-xs font-bold tracking-[0.15em] uppercase text-white hover:bg-gradient-to-r hover:from-[#833ab4] hover:via-[#fd1d1d] hover:to-[#fcb045] hover:border-transparent hover:scale-105 hover:shadow-[0_0_30px_rgba(253,29,29,0.8)] transition-all duration-300 group/btn"
@@ -505,7 +504,9 @@ const clientes = [
 
               {/* Botón Correo Electrónico */}
               <a
-                href="mailto:contacto@fantasmedia.com"
+                href="mailto:contactofantasmedia@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-3 px-6 py-3.5 rounded-full bg-black/50 border border-white/20 backdrop-blur-xl text-xs font-bold tracking-[0.15em] uppercase text-white hover:bg-[#c22533] hover:border-[#c22533] hover:scale-105 hover:shadow-[0_0_30px_rgba(194,37,51,0.9)] transition-all duration-300 group/btn"
               >
                 <svg className="w-4 h-4 fill-current transition-transform duration-300 group-hover/btn:scale-125" viewBox="0 0 24 24">
