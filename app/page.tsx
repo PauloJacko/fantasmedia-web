@@ -165,7 +165,7 @@ const clientes = [
           {[
             { name: "Productora", href: "#productora" },
             { name: "Servicios", href: "#servicios" },
-            { name: "Portafolio", href: "#portafolio" },
+            { name: "Portafolio", href: "/portafolio" },
             { name: "Clientes", href: "#clientes" },
             { name: "Contacto", href: "#contacto" },
           ].map((item) => (
