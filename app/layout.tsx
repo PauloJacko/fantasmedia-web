@@ -1,6 +1,6 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import "./globals.css"; // Asegúrate de importar tus estilos globales
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Fantasmedia Producciones",

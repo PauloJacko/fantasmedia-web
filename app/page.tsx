@@ -130,9 +130,8 @@ const clientes = [
           <div className="absolute inset-0 bg-[#c22533]/10 mix-blend-multiply" />
         </div>
 
-      {/* ========================================================= */}
       {/* SECCIÓN 1: VISTA INICIAL */}
-      {/* ========================================================= */}
+
       <section className="relative z-10 w-full h-screen flex flex-col justify-between items-center px-6 py-8">
         
         {/* Header: Mascota y Logo */}
@@ -191,9 +190,8 @@ const clientes = [
         </div>
       </section>
 
-      {/* ========================================================= */}
       {/* SECCIÓN 2: CONTINUACIÓN HERO */}
-      {/* ========================================================= */}
+
       <section className="relative z-10 w-full py-12 md:py-16 flex flex-col justify-center items-center px-6 text-center">
         <div className="max-w-3xl space-y-5 px-4">
           
@@ -225,9 +223,8 @@ const clientes = [
         </div>
       </section>
 
-      {/* ========================================================= */}
       {/* SECCIÓN 3: CÓMO LO HACEMOS */}
-      {/* ========================================================= */}
+
       <section id="productora" className="relative z-10 w-full py-12 md:py-20 px-6 flex justify-center items-center">
         <div className="relative w-full max-w-5xl rounded-3xl overflow-hidden bg-black/40 backdrop-blur-md border border-white/10 p-6 md:p-12 shadow-[0_8px_32px_0_rgba(0,0,0,0.8)]">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -280,9 +277,8 @@ const clientes = [
         </div>
       </section>
 
-      {/* ========================================================= */}
       {/* BLOQUE GRAFITO CONTINUO */}
-      {/* ========================================================= */}
+
       <div className="relative z-20 w-full bg-[#121318] border-t border-white/10 shadow-[0_-20px_50px_rgba(0,0,0,0.9)]">
 
         <div 
@@ -293,9 +289,8 @@ const clientes = [
           }}
         />
 
-        {/* ========================================================= */}
         {/* 4. NUESTROS SERVICIOS */}
-        {/* ========================================================= */}
+
         <section id="servicios" className="relative z-10 w-full py-12 md:py-16">
           <div className="w-full text-center space-y-2 mb-8 px-6">
             <h2 className="text-2xl md:text-4xl font-black uppercase tracking-wider">
@@ -308,8 +303,7 @@ const clientes = [
 
           {/* CONTENEDOR MÓVIL Y PC */}
           <div className="w-full px-4 md:px-8 max-w-[1500px] mx-auto">
-            
-            {/* GRID EN MÓVIL (grid) / ABANICO EN COMPUTADORA (md:flex) */}
+
             <div className="grid grid-cols-1 sm:grid-cols-2 md:flex md:flex-row h-auto md:h-[420px] w-full gap-3 transition-all duration-500 ease-in-out">
               {servicios.map((servicio, index) => {
                 const isOpen = activeService === index;
@@ -387,6 +381,7 @@ const clientes = [
             </div>
 
             {/* BOTÓN CONTACTANOS ABAJO */}
+
             <div className="w-full flex justify-center md:justify-end items-center mt-6 px-1">
               <a
                 href="https://wa.me/56941459096"
@@ -403,9 +398,8 @@ const clientes = [
           </div>
         </section>
 
-        {/* ========================================================= */}
-        {/* 5. CLIENTES (GRID SIN SCROLL) */}
-        {/* ========================================================= */}
+        {/* 5. CLIENTES */}
+
         <section id="clientes" className="relative z-10 w-full py-12 md:py-16 border-t border-white/5">
           <div className="w-full text-center space-y-2 mb-8 px-6">
             <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#c22533]">
@@ -438,9 +432,8 @@ const clientes = [
           </div>
         </section>
 
-        {/* ========================================================= */}
         {/* 6. SECCIÓN DE CONTACTO */}
-        {/* ========================================================= */}
+
         <section id="contacto" className="relative z-10 w-full py-20 md:py-32 px-6 flex flex-col justify-center items-center overflow-hidden border-t border-white/5 group">
           
           {/* IMAGEN COMPLETA DE FONDO */}
@@ -522,6 +515,7 @@ const clientes = [
         </section>
 
         {/* FOOTER */}
+
         <footer className="relative z-10 w-full py-6 text-center text-[10px] uppercase tracking-[0.3em] text-zinc-400 border-t border-white/5">
           Fantasmedia Producciones • All Rights Reserved • Página creada por Paulokko
         </footer>

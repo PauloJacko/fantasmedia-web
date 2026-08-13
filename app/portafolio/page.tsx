@@ -15,10 +15,9 @@ export default function PortafolioPage() {
 
   return (
     <main className="min-h-screen bg-[#121318] text-white relative selection:bg-[#c22533] selection:text-white">
-      
-      {/* ========================================================= */}
+
       {/* 1. ENCABEZADO Y NAVEGACIÓN */}
-      {/* ========================================================= */}
+
       <header className="sticky top-0 z-40 w-full bg-[#121318]/80 backdrop-blur-xl border-b border-white/10 px-6 py-4 transition-all duration-300">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           
