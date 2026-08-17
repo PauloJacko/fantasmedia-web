@@ -224,7 +224,6 @@ const clientes = [
       </section>
 
       {/* SECCIÓN 3: CÓMO LO HACEMOS */}
-
       <section id="productora" className="relative z-10 w-full py-12 md:py-20 px-6 flex justify-center items-center">
         <div className="relative w-full max-w-5xl rounded-3xl overflow-hidden bg-black/40 backdrop-blur-md border border-white/10 p-6 md:p-12 shadow-[0_8px_32px_0_rgba(0,0,0,0.8)]">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -232,8 +231,7 @@ const clientes = [
             <div className="lg:col-span-7 space-y-5">
               <div className="space-y-2">
                 <h2 className="text-2xl md:text-4xl font-black uppercase tracking-wide leading-tight drop-shadow-md">
-                  Cómo materializamos <br className="hidden sm:block"/>
-                  <span className="text-zinc-200">cada proyecto</span>
+                  Cómo materializamos tu proyecto <br className="hidden sm:block"/>
                 </h2>
               </div>
 
@@ -247,14 +245,21 @@ const clientes = [
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-[#c22533] mt-1.5 flex-shrink-0 shadow-[0_0_8px_#c22533]" />
                   <p>
-                    <strong className="text-white font-semibold">Producción Audiovisual Integral:</strong> Fotografías de alta fidelidad, rodajes cinematográficos, postproducción con colorimetría avanzada y piezas optimizadas para Reels y TikTok.
+                    <strong className="text-white font-semibold">Desde la Pre a la Post:</strong> Desarrollamos tu proyecto de inicio a fin, desde la idea, guion, scouting, hasta la entrega final y/o distribución. Nuestro equipo profesional te acompaña en todo el proceso.
                   </p>
                 </div>
 
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-[#c22533] mt-1.5 flex-shrink-0 shadow-[0_0_8px_#c22533]" />
                   <p>
-                    <strong className="text-white font-semibold">Búsqueda de Locaciones (Scouting):</strong> Exploramos e identificamos escenarios únicos en interiores y exteriores para potenciar la narrativa estética de tu marca.
+                    <strong className="text-white font-semibold">Atención personalizada:</strong> Comprendemos que no todos los proyectos se llevan a cabo con el mismo proceso, por lo que nos acomodamos a la exigencia del proyecto presentado.
+                  </p>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-[#c22533] mt-1.5 flex-shrink-0 shadow-[0_0_8px_#c22533]" />
+                  <p>
+                    <strong className="text-white font-semibold">Servicios individuales:</strong> Contamos con una gama de profesionales que recorren el camino desde el diseño gráfico, animación, 3D, ilustración, fotografía, efectos especiales, etc. Más allá del audiovisual, te presentamos un abanico creativo completo.
                   </p>
                 </div>
               </div>
