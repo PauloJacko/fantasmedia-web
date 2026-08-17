@@ -437,7 +437,79 @@ const clientes = [
           </div>
         </section>
 
-        {/* 6. SECCIÓN DE CONTACTO */}
+        {/* 6. PRODUCTORAS ASOCIADAS - SHOWCASE CON LOGOS PROTAGÓNICOS */}
+        <section id="productoras-asociadas" className="relative z-10 w-full py-16 md:py-24 border-t border-white/10 overflow-hidden bg-gradient-to-b from-transparent via-black/40 to-transparent">
+          
+          {/* Encabezado Minimalista */}
+          <div className="w-full text-center space-y-2 mb-10 px-6">
+            <div className="inline-flex items-center gap-3">
+              <span className="w-8 h-[1px] bg-[#c22533]" />
+              <span className="text-[10px] md:text-xs font-bold tracking-[0.4em] uppercase text-[#c22533]">
+                Co-Producciones & Alianzas
+              </span>
+              <span className="w-8 h-[1px] bg-[#c22533]" />
+            </div>
+            <h2 className="text-xl md:text-3xl font-black uppercase tracking-[0.2em] text-white/90">
+              Productoras Asociadas
+            </h2>
+          </div>
+
+          {/* Banner con Logos Protagónicos de Gran Tamaño */}
+          <div className="max-w-6xl mx-auto px-4 md:px-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-0 items-center border border-white/10 rounded-2xl md:rounded-3xl bg-black/50 backdrop-blur-md divide-y md:divide-y-0 md:divide-x divide-white/10 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
+              
+              {/* Productora 1: Spectral Films */}
+              <div className="group relative p-6 md:p-10 flex flex-col items-center justify-center transition-all duration-500 hover:bg-white/[0.03]">
+                {/* Resplandor rojo en Hover */}
+                <div className="absolute inset-0 bg-gradient-to-b from-[#c22533]/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                
+                {/* Contenedor del Logo de Gran Tamaño */}
+                <div className="relative h-32 md:h-44 w-full max-w-[280px] md:max-w-[360px] flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
+                  <Image
+                    src="/productora1.png"
+                    alt="Spectral Films"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] group-hover:drop-shadow-[0_0_25px_rgba(194,37,51,0.6)] transition-all duration-500"
+                  />
+                </div>
+                
+                <div className="mt-4 text-center space-y-1">
+                  <h3 className="text-sm md:text-base font-bold tracking-[0.2em] uppercase text-white group-hover:text-[#c22533] transition-colors">
+                    Spectral Films
+                  </h3>
+                </div>
+              </div>
+
+              {/* Productora 2: Ugly Monster */}
+              <div className="group relative p-6 md:p-10 flex flex-col items-center justify-center transition-all duration-500 hover:bg-white/[0.03]">
+                {/* Resplandor rojo en Hover */}
+                <div className="absolute inset-0 bg-gradient-to-b from-[#c22533]/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                
+                {/* Contenedor del Logo de Gran Tamaño */}
+                <div className="relative h-32 md:h-44 w-full max-w-[280px] md:max-w-[360px] flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
+                  <Image
+                    src="/productora2.png"
+                    alt="Ugly Monster"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] group-hover:drop-shadow-[0_0_25px_rgba(194,37,51,0.6)] transition-all duration-500"
+                  />
+                </div>
+
+                <div className="mt-4 text-center space-y-1">
+                  <h3 className="text-sm md:text-base font-bold tracking-[0.2em] uppercase text-white group-hover:text-[#c22533] transition-colors">
+                    Ugly Monster
+                  </h3>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </section>
+
+        {/* 7. SECCIÓN DE CONTACTO */}
 
         <section id="contacto" className="relative z-10 w-full py-20 md:py-32 px-6 flex flex-col justify-center items-center overflow-hidden border-t border-white/5 group">
           
