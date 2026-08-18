@@ -10,31 +10,23 @@ interface ItemPortafolio {
   title: string;
 }
 
-// Estructura de array individual con objetos para cada imagen (portafolio1.png a portafolio23.png)
+// Estructura de array individual con objetos para cada imagen
 const imagenesPortafolio: ItemPortafolio[] = [
-  { id: 1, src: "/portafolio1.png", title: "PUTA QUE WEVEAI TOMMY" },
-  { id: 2, src: "/portafolio2.png", title: "PUTA QUE WEVEAI TOMMY" },
-  { id: 3, src: "/portafolio3.png", title: "PUTA QUE WEVEAI TOMMY" },
-  { id: 4, src: "/portafolio4.png", title: "PUTA QUE WEVEAI TOMMY" },
-  { id: 5, src: "/portafolio5.png", title: "PUTA QUE WEVEAI TOMMY" },
-  { id: 6, src: "/portafolio6.png", title: "PUTA QUE WEVEAI TOMMY" },
-  { id: 7, src: "/portafolio7.png", title: "PUTA QUE WEVEAI TOMMY" },
-  { id: 8, src: "/portafolio8.png", title: "PUTA QUE WEVEAI TOMMY" },
-  { id: 9, src: "/portafolio9.png", title: "PUTA QUE WEVEAI TOMMY" },
-  { id: 10, src: "/portafolio10.png", title: "PUTA QUE WEVEAI TOMMY" },
-  { id: 11, src: "/portafolio11.png", title: "PUTA QUE WEVEAI TOMMY" },
-  { id: 12, src: "/portafolio12.png", title: "PUTA QUE WEVEAI TOMMY" },
-  { id: 13, src: "/portafolio13.png", title: "AGREGAR TITULO" },
-  { id: 14, src: "/portafolio14.png", title: "AGREGAR TITULO" },
-  { id: 15, src: "/portafolio15.png", title: "AGREGAR TITULO" },
-  { id: 16, src: "/portafolio16.png", title: "AGREGAR TITULO" },
-  { id: 17, src: "/portafolio17.png", title: "AGREGAR TITULO" },
-  { id: 18, src: "/portafolio18.png", title: "AGREGAR TITULO" },
-  { id: 19, src: "/portafolio19.png", title: "AGREGAR TITULO" },
-  { id: 20, src: "/portafolio20.png", title: "AGREGAR TITULO" },
-  { id: 21, src: "/portafolio21.png", title: "AGREGAR TITULO" },
-  { id: 22, src: "/portafolio22.png", title: "AGREGAR TITULO" },
-  { id: 23, src: "/portafolio23.png", title: "AGREGAR TITULO" },
+  { id: 1, src: "/portafolio1.png", title: "Avant Premiere \"Evil Dead Burn\" - Sony Pictures" },
+  { id: 2, src: "/portafolio2.png", title: "Revoluz100 - Enel" },
+  { id: 3, src: "/portafolio3.png", title: "Cortometraje \"Aetherars\" - 48 Hours Film Project Festival" },
+  { id: 4, src: "/portafolio4.png", title: "Videoclip \"Grito Subterráneo\" - Falling Frames" },
+  { id: 5, src: "/portafolio5.png", title: "Campaña publicitaria \"Mil Pedazos\" - BF Distribution y Market Chile" },
+  { id: 6, src: "/portafolio6.png", title: "Campaña publicitaria \"Evil Dead Burn\" - Sony Pictures" },
+  { id: 7, src: "/portafolio7.png", title: "Obra de teatro \"La Jaula de las Locas\" - Teatro Estudio 13" },
+  { id: 8, src: "/portafolio8.png", title: "Obra de teatro \"El Evangelio según San Jaime\" - La Dramática Nacional" },
+  { id: 9, src: "/portafolio9.png", title: "Spot Publicitario - Epicbet" },
+  { id: 10, src: "/portafolio10.png", title: "Videoclip \"Domi Reversi\" - Falling Frames" },
+  { id: 11, src: "/portafolio11.png", title: "Obra de teatro \"Fuerte Bulnes\" - La Dramática Nacional" },
+  { id: 12, src: "/portafolio12.png", title: "Documental \"Izquierdo\" - Universidad Católica" },
+  { id: 13, src: "/portafolio13.png", title: "Campaña Internacional \"Insidious: Out of the Further\" - Sony Pictures" },
+  { id: 14, src: "/portafolio14.png", title: "Cortometraje \"Hábito\" - Fantasmedia Producciones" },
+  { id: 15, src: "/portafolio15.png", title: "Comercial \"Metro 50 Años\" - Metro de Santiago" },
 ];
 
 export default function PortafolioPage() {

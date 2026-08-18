@@ -37,7 +37,7 @@ const clientes = [
     "/logo-cliente11.png",
     "/logo-cliente12.png",
     "/logo-cliente13.png",
-    "/logo-cliente14.jpeg",
+    "/logo-cliente14.png",
   ];
 
   const servicios: Servicio[] = [
@@ -454,7 +454,7 @@ const clientes = [
           </div>
 
           <div className="max-w-6xl mx-auto px-4 md:px-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-0 items-center border border-white/10 rounded-2xl md:rounded-3xl bg-black/50 backdrop-blur-md divide-y md:divide-y-0 md:divide-x divide-white/10 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0 items-center border border-white/10 rounded-2xl md:rounded-3xl bg-black/50 backdrop-blur-md divide-y md:divide-y-0 md:divide-x divide-white/10 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
               
               {/* Productora 1: Spectral Films */}
               <div className="group relative p-6 md:p-10 flex flex-col items-center justify-center transition-all duration-500 hover:bg-white/[0.03]">
@@ -493,7 +493,28 @@ const clientes = [
 
                 <div className="mt-4 text-center space-y-1">
                   <h3 className="text-sm md:text-base font-bold tracking-[0.2em] uppercase text-white group-hover:text-[#c22533] transition-colors">
-                    Ugly Monster
+                    UglyMonster
+                  </h3>
+                </div>
+              </div>
+
+              {/* Productora 3: Robot Mágico */}
+              <div className="group relative p-6 md:p-10 flex flex-col items-center justify-center transition-all duration-500 hover:bg-white/[0.03]">
+                <div className="absolute inset-0 bg-gradient-to-b from-[#c22533]/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
+                <div className="relative h-32 md:h-44 w-full max-w-[280px] md:max-w-[360px] flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
+                  <Image
+                    src="/productora3.png"
+                    alt="Robot Mágico"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] group-hover:drop-shadow-[0_0_25px_rgba(194,37,51,0.6)] transition-all duration-500"
+                  />
+                </div>
+                
+                <div className="mt-4 text-center space-y-1">
+                  <h3 className="text-sm md:text-base font-bold tracking-[0.2em] uppercase text-white group-hover:text-[#c22533] transition-colors">
+                    Robot Mágico
                   </h3>
                 </div>
               </div>
@@ -586,13 +607,34 @@ const clientes = [
         </section>
 
         {/* FOOTER */}
-
         <footer className="relative z-10 w-full py-6 text-center text-[10px] uppercase tracking-[0.3em] text-zinc-400 border-t border-white/5">
           Fantasmedia Producciones • All Rights Reserved • Página creada por Paulokko
         </footer>
 
       </div>
 
+      {/* SCHEMA JSON-LD PARA SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "name": "Fantasmedia Producciones",
+            "image": "https://www.fantasmedia.cl/logo-fantasmedia.png",
+            "description": "Productora audiovisual especializada en fotografía, publicidad, videoclips y streaming.",
+            "telephone": "+56941459096",
+            "email": "contactofantasmedia@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "CL"
+            },
+            "sameAs": [
+              "https://instagram.com/fantasmedia.cl"
+            ]
+          }),
+        }}
+      />
     </main>
   </>
 );
