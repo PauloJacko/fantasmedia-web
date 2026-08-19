@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import CinematicIntro from "@/app/components/CinematicIntro";
@@ -22,6 +22,16 @@ export default function Home() {
   const toggleService = (index: number) => {
     setActiveService((prev) => (prev === index ? null : index));
   };
+  
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch((error) => {
+        console.warn("Autoplay restringido por iOS:", error);
+      });
+    }
+  }, []);
 
 const clientes = [
     "/logo-cliente1.png",
@@ -112,13 +122,17 @@ const clientes = [
           showIntro ? "opacity-0 h-screen overflow-hidden" : "opacity-100"
         }`}
       >
-        {/* 1. VIDEO DE FONDO PERMANENTE */}
+        {/* 1. VIDEO DE FONDO PERMANENTE CON FALLBACK EN POSTER */}
         <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
           <video
+            ref={videoRef}
             autoPlay
             loop
             muted
             playsInline
+            poster="/hero-fallback.png"
+            webkit-playsinline="true"
+            preload="auto"
             className="h-full w-full object-cover scale-105 filter brightness-95 contrast-105"
           >
             <source src="/hero-video.mp4" type="video/mp4" />
@@ -608,7 +622,7 @@ const clientes = [
 
         {/* FOOTER */}
         <footer className="relative z-10 w-full py-6 text-center text-[10px] uppercase tracking-[0.3em] text-zinc-400 border-t border-white/5">
-          Fantasmedia Producciones • All Rights Reserved • Página creada por Paulokko
+          Fantasmedia Producciones • Página creada por Paulokko
         </footer>
 
       </div>
